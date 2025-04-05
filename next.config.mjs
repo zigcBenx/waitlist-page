@@ -22,11 +22,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  assetPrefix: '.', // Use relative path for assets
+  trailingSlash: true, // Helps with relative path resolution
 }
 
 if (userConfig) {
