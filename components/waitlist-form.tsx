@@ -38,6 +38,20 @@ export default function WaitlistForm() {
         return
       }
 
+
+      // Send welcome email (you'll implement this API route)
+      const emailResponse = await fetch('/api/send-welcome-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+      })
+
+      if (!emailResponse.ok) {
+        throw new Error('Failed to send welcome email')
+      }
+
       setIsSubmitted(true)
     } catch (err) {
       console.error(err)
